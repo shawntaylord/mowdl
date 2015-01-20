@@ -33,11 +33,11 @@ html, body {
   z-index: 100000;
   border-radius: 3px;
   opacity: 0;
-  -webkit-transition: all 0.25s;
-     -moz-transition: all 0.25s;
-      -ms-transition: all 0.25s;
-       -o-transition: all 0.25s;
-          transition: all 0.25s;
+  -webkit-transition: all 0.35s;
+     -moz-transition: all 0.35s;
+      -ms-transition: all 0.35s;
+       -o-transition: all 0.35s;
+          transition: all 0.35s;
 
   -webkit-transform: translate(-50%, -50%);
      -moz-transform: translate(-50%, -50%);
@@ -52,11 +52,24 @@ html, body {
 
 .mowdl-base.fade-and-drop.mowdl-open {
   top: 50%;
-  -webkit-transition: top 0.25s;
-     -moz-transition: top 0.25s;
-      -ms-transition: top 0.25s;
-       -o-transition: top 0.25s;
-          transition: top 0.25s;
+  -webkit-transition: top 0.35s;
+     -moz-transition: top 0.35s;
+      -ms-transition: top 0.35s;
+       -o-transition: top 0.35s;
+          transition: top 0.35s;
+}
+
+.mowdl-base.slide-right {
+  left: -350%;
+}
+
+.mowdl-base.slide-right.mowdl-open {
+  left: 50%;
+  -webkit-transition: left 0.35s;
+     -moz-transition: left 0.35s;
+      -ms-transition: left 0.35s;
+       -o-transition: left 0.35s;
+          transition: left 0.35s;
 }
 
 .mowdl-base.mowdl-open {
@@ -108,8 +121,8 @@ html, body {
   outline: none;
   height: 22px;
   width: 22px;
-  border-radius: 11px;
   color: #fff;
+  border-radius: 11px;
   line-height: 22px;
   text-align: center;
 }

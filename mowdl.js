@@ -71,30 +71,22 @@
 
     this.mowdl = document.createElement('aside');
     // TODO: dynamically add/choose animation (fade-and-drop)
-    this.mowdl.className = 'mowdl-base fade-and-drop ' +
+    this.mowdl.className = 'mowdl-base slide-right ' +
       (this.options.baseClass ? this.options.baseClass : '');
     this.mowdl.style.minWidth = this.options.minWidth + 'px';
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
 
     // Add header of modal
     header = document.createElement('header');
-    // TODO: Add optional header class
     header.className = 'mowdl-header';
 
     this.title = document.createElement('h1');
-    // TODO: Check if 'this.options.titleClass' exists
-    this.title.className = 'mowdl-title ' + this.options.titleClass;
+    this.title.className = 'mowdl-title';
 
     if (this.options.title === true) {
-      var titleContent;
-
-      // TODO: Turn this into a helper
       if (typeof this.options.titleContent === 'string') {
-        titleContent = this.options.titleContent;
-      } else {
-        titleContent = this.options.titleContent.innerHTML;
+        this.title.innerHTML = this.options.titleContent;
       }
-      this.title.innerHTML = titleContent;
     }
 
     header.appendChild(this.title);
