@@ -6,6 +6,7 @@
 
     var defaults = {
       closeButton: true,
+      header: false,
       content: '',
       minWidth: 200,
       maxWidth: 800,
@@ -56,8 +57,10 @@
   function mowdlize() {
     var content,
         contentHolder,
+        header,
         docFrag;
 
+    // TODO: turn this into a helper
     if (typeof this.options.content === 'string') {
       content = this.options.content;
     } else {
@@ -67,20 +70,48 @@
     docFrag = document.createDocumentFragment();
 
     this.mowdl = document.createElement('aside');
+    // TODO: dynamically add/choose animation (fade-and-drop)
     this.mowdl.className = 'mowdl-base fade-and-drop ' +
       (this.options.baseClass ? this.options.baseClass : '');
     this.mowdl.style.minWidth = this.options.minWidth + 'px';
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
 
+    // Add header of modal
+    header = document.createElement('header');
+    // TODO: Add optional header class
+    header.className = 'mowdl-header';
+
+    this.title = document.createElement('h1');
+    // TODO: Check if 'this.options.titleClass' exists
+    this.title.className = 'mowdl-title ' + this.options.titleClass;
+
+    if (this.options.title === true) {
+      var titleContent;
+
+      // TODO: Turn this into a helper
+      if (typeof this.options.titleContent === 'string') {
+        titleContent = this.options.titleContent;
+      } else {
+        titleContent = this.options.titleContent.innerHTML;
+      }
+      this.title.innerHTML = titleContent;
+    }
+
+    header.appendChild(this.title);
+
     if (this.options.closeButton === true) {
-      this.closeButton = document.createElement('button');
+      var closeContainer = document.createElement('div');
+      closeContainer.className = 'mowdl-close-box';
+      this.closeButton = document.createElement('div');
       this.closeButton.className = 'mowdl-close';
       this.closeButton.innerHTML = '&times;';
-      this.mowdl.appendChild(this.closeButton);
+      closeContainer.appendChild(this.closeButton);
+      header.appendChild(closeContainer);
     }
 
     if (this.options.overlay === true) {
       this.overlay = document.createElement('div');
+      // TODO: Check if 'this.options.overlayClass' exists
       this.overlay.className = 'mowdl-overlay ' + this.options.overlayClass;
       docFrag.appendChild(this.overlay);
     }
@@ -88,6 +119,8 @@
     contentHolder = document.createElement('div');
     contentHolder.className = 'mowdl-content';
     contentHolder.innerHTML = content;
+
+    this.mowdl.appendChild(header);
     this.mowdl.appendChild(contentHolder);
 
     docFrag.appendChild(this.mowdl);
