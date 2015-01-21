@@ -70,8 +70,8 @@
     docFrag = document.createDocumentFragment();
 
     this.mowdl = document.createElement('aside');
-    // TODO: dynamically add/choose animation (fade-and-drop)
-    this.mowdl.className = 'mowdl-base slide-right ' +
+    // TODO: dynamically add/choose animation (fade-and-drop, slide-right, fade-in)
+    this.mowdl.className = 'mowdl-base fade-in ' +
       (this.options.baseClass ? this.options.baseClass : '');
     this.mowdl.style.minWidth = this.options.minWidth + 'px';
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
