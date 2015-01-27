@@ -11,7 +11,8 @@
       minWidth: 200,
       maxWidth: 800,
       overlay: true,
-      animation: 'fade-in' // fade-in, slide-right, fade-and-drop, slide-left
+      animation: 'fade-in', // fade-in, slide-right, fade-and-drop, slide-left,
+      theme: 'orange'
     }
 
     if (arguments[0] && typeof arguments[0] === 'object') {
@@ -71,14 +72,18 @@
     docFrag = document.createDocumentFragment();
 
     this.mowdl = document.createElement('aside');
-    this.mowdl.className = 'mowdl-base ' + this.options.animation + ' ' +
-      (this.options.baseClass ? this.options.baseClass : '');
+    this.mowdl.className = [
+      'mowdl-base',
+      this.options.animation,
+      this.options.theme,
+      this.options.baseClass ? this.options.baseClass : ''
+    ].join(' ');
     this.mowdl.style.minWidth = this.options.minWidth + 'px';
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
 
     // Add header of modal
     header = document.createElement('header');
-    header.className = 'mowdl-header';
+    header.className = 'mowdl-header ' + this.options.theme;
 
     this.title = document.createElement('h1');
     this.title.className = 'mowdl-title';

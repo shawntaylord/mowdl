@@ -120,7 +120,6 @@ html, body {
 .mowdl-header {
   margin: 0;
   width: 100%;
-  background-color: #F6E2BF;
   padding: 15px 25px;
   box-sizing: border-box;
 }
@@ -159,6 +158,29 @@ html, body {
   border-radius: 11px;
   line-height: 22px;
   text-align: center;
+}
+
+/* Built-in Themes */
+.orange {
+  background-color: #F6E2BF;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}
+.purple {
+  background-color: purple;
+}
+.red {
+  background-color: red;
+}
+.yellow {
+  background-color: yellow;
+}
+.black {
+  background-color: black;
 }
 
 .mowdl-close:hover,
