@@ -31,6 +31,7 @@ html, body {
   top: 50%;
   left: 50%;
   z-index: 100000;
+  color: #fff;
   border-radius: 3px;
   opacity: 0;
   -webkit-transition: all 0.35s;
@@ -153,6 +154,9 @@ html, body {
   outline: none;
   cursor: pointer;
   font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
   -webkit-transition: background-color 0.35s;
      -moz-transition: background-color 0.35s;
       -ms-transition: background-color 0.35s;
@@ -160,11 +164,9 @@ html, body {
           transition: background-color 0.35s;
 }
 
-
 /* Built-in Themes */
 aside.orange {
   background-color: #F67D09;
-  color: #fff;
 }
 .mowdl-overlay.orange {
   background-color: rgba(246, 125, 9, 0.3);
@@ -172,36 +174,115 @@ aside.orange {
 .orange header {
   background-color: #D06B0B;
 }
-
 .orange footer button {
   background-color: #964900;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
-
 .orange footer button:hover,
 .orange footer button:focus {
   background-color: #6E3500;
 }
 
-.blue {
-  background-color: blue;
+aside.blue {
+  background-color: #4464AD;
 }
-.green {
-  background-color: green;
+.mowdl-overlay.blue {
+  background-color: rgba(23, 55, 129, 0.3);
 }
-.purple {
-  background-color: purple;
+.blue header {
+  background-color: #2B4E9F;
 }
-.red {
-  background-color: red;
+.blue footer button {
+  background-color: #173781;
 }
-.yellow {
-  background-color: yellow;
+.blue footer button:hover,
+.blue footer button:focus {
+  background-color: #0D214F;
 }
-.black {
-  background-color: black;
+
+aside.green {
+  background-color: #166533;
+}
+.mowdl-overlay.green {
+  background-color: rgba(0, 45, 17, 0.3);
+}
+.green header {
+  background-color: #04471D;
+}
+.green footer button {
+  background-color: #00471B;
+}
+.green footer button:hover,
+.green footer button:focus {
+  background-color: #002D11;
+}
+
+aside.purple {
+  background-color: #7353BA;
+}
+.mowdl-overlay.purple {
+  background-color: rgba(65, 28, 146, 0.3);
+}
+.purple header {
+  background-color: #5A37A6;
+}
+.purple footer button {
+  background-color: #411C92;
+}
+.purple footer button:hover,
+.purple footer button:focus {
+  background-color: #2F146B;
+}
+
+aside.red {
+  background-color: #B24C63;
+}
+.mowdl-overlay.red {
+  background-color: rgba(98, 8, 29, 0.3);
+}
+.red header {
+  background-color: #8B243C;
+}
+.red footer button {
+  background-color: #62081D;
+}
+.red footer button:hover,
+.red footer button:focus {
+  background-color: #4F0617;
+}
+
+aside.yellow {
+  background-color: #F2EE7A;
+  color: #222 !important;
+}
+.mowdl-overlay.yellow {
+  background-color: rgba(170, 165, 41, 0.3);
+}
+.yellow header {
+  background-color: #CCC84A;
+}
+.yellow footer button {
+  background-color: #AAA529;
+}
+.yellow footer button:hover,
+.yellow footer button:focus {
+  background-color: #817D1D;
+}
+
+aside.black {
+  background-color: #999;
+}
+.mowdl-overlay.black {
+  background-color: rgba(51, 51, 51, 0.3);
+}
+.black header {
+  background-color: #6C6C6C;
+}
+.black footer button {
+  background-color: #333333;
+}
+.black footer button:hover,
+.black footer button:focus {
+  background-color: #222;
 }
 
 @media screen and (max-height: 500px) {

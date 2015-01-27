@@ -14,7 +14,7 @@
       maxHeight: 800,
       overlay: true,
       animation: 'fade-in', // fade-in, slide-right, fade-and-drop, slide-left,
-      theme: 'orange'
+      theme: 'black'
     }
 
     if (arguments[0] && typeof arguments[0] === 'object') {
