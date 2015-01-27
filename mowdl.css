@@ -46,6 +46,18 @@ html, body {
           transform: translate(-50%, -50%);
 }
 
+.mowdl-close {
+  border-radius: 3px;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  margin: auto;
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .mowdl-base.fade-and-drop {
   top: -350%;
 }
@@ -112,7 +124,6 @@ html, body {
 
 .mowdl-content {
   padding: 25px;
-  background-color: #fff;
   overflow-y: scroll;
   max-height: 500px;
 }
@@ -120,50 +131,60 @@ html, body {
 .mowdl-header {
   margin: 0;
   width: 100%;
+  height: 80px;
+  font-size: 45px;
   padding: 15px 25px;
   box-sizing: border-box;
 }
-
 .mowdl-title {
   display: inline-block;
   margin: 0;
-  width: 85%;
-  line-height: 20px;
-  vertical-align: middle;
-  color: rgba(34, 34, 34, 0.6);
-  text-shadow: 1px 4px 6px #F6E2BF, 0 0 0 #000, 1px 4px 6px #F6E2BF;
-}
-
-.mowdl-close-box {
-  width: 15%;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: right;
-}
-
-.mowdl-close {
-  display: inline-block;
-  background-color: rgba(255, 60, 60, 0.7);
-  -webkit-transition: background-color 0.25s;
-     -moz-transition: background-color 0.25s;
-      -ms-transition: background-color 0.25s;
-       -o-transition: background-color 0.25s;
-          transition: background-color 0.25s;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  height: 22px;
-  width: 22px;
-  color: #fff;
-  border-radius: 11px;
-  line-height: 22px;
+  width: 100%;
   text-align: center;
+  vertical-align: middle;
+  font-weight: 100;
 }
+
+.mowdl-footer {
+  height: 80px;
+}
+
+.mowdl-footer button {
+  outline: none;
+  cursor: pointer;
+  font-weight: 100;
+  -webkit-transition: background-color 0.35s;
+     -moz-transition: background-color 0.35s;
+      -ms-transition: background-color 0.35s;
+       -o-transition: background-color 0.35s;
+          transition: background-color 0.35s;
+}
+
 
 /* Built-in Themes */
-.orange {
-  background-color: #F6E2BF;
+aside.orange {
+  background-color: #F67D09;
+  color: #fff;
 }
+.mowdl-overlay.orange {
+  background-color: rgba(246, 125, 9, 0.3);
+}
+.orange header {
+  background-color: #D06B0B;
+}
+
+.orange footer button {
+  background-color: #964900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.orange footer button:hover,
+.orange footer button:focus {
+  background-color: #6E3500;
+}
+
 .blue {
   background-color: blue;
 }
@@ -181,11 +202,6 @@ html, body {
 }
 .black {
   background-color: black;
-}
-
-.mowdl-close:hover,
-.mowdl-close:focus {
-  background-color: rgba(255, 60, 60, 1);
 }
 
 @media screen and (max-height: 500px) {

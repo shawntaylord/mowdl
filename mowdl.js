@@ -6,10 +6,12 @@
 
     var defaults = {
       closeButton: true,
+      closeText: 'Exit',
       header: false,
       content: '',
       minWidth: 200,
       maxWidth: 800,
+      maxHeight: 800,
       overlay: true,
       animation: 'fade-in', // fade-in, slide-right, fade-and-drop, slide-left,
       theme: 'orange'
@@ -80,12 +82,13 @@
     ].join(' ');
     this.mowdl.style.minWidth = this.options.minWidth + 'px';
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
+    this.mowdl.style.maxHeight = this.options.maxHeight + 'px';
 
     // Add header of modal
     header = document.createElement('header');
-    header.className = 'mowdl-header ' + this.options.theme;
+    header.className = 'mowdl-header';
 
-    this.title = document.createElement('h1');
+    this.title = document.createElement('h3');
     this.title.className = 'mowdl-title';
 
     if (this.options.title === true) {
@@ -97,19 +100,21 @@
     header.appendChild(this.title);
 
     if (this.options.closeButton === true) {
-      var closeContainer = document.createElement('div');
-      closeContainer.className = 'mowdl-close-box';
-      this.closeButton = document.createElement('div');
+      var footer = document.createElement('footer');
+      footer.className = 'mowdl-footer';
+      this.closeButton = document.createElement('button');
       this.closeButton.className = 'mowdl-close';
-      this.closeButton.innerHTML = '&times;';
-      closeContainer.appendChild(this.closeButton);
-      header.appendChild(closeContainer);
-    }
+      this.closeButton.innerHTML = this.options.closeText;
+      footer.appendChild(this.closeButton);    }
 
     if (this.options.overlay === true) {
       this.overlay = document.createElement('div');
       // TODO: Check if 'this.options.overlayClass' exists
-      this.overlay.className = 'mowdl-overlay ' + this.options.overlayClass;
+      this.overlay.className = [
+        'mowdl-overlay',
+        this.options.overlayClass,
+        this.options.theme
+      ].join(' ');
       docFrag.appendChild(this.overlay);
     }
 
@@ -119,6 +124,7 @@
 
     this.mowdl.appendChild(header);
     this.mowdl.appendChild(contentHolder);
+    this.mowdl.appendChild(footer);
 
     docFrag.appendChild(this.mowdl);
 
