@@ -10,7 +10,8 @@
       content: '',
       minWidth: 200,
       maxWidth: 800,
-      overlay: true
+      overlay: true,
+      animation: 'fade-in' // fade-in, slide-right, fade-and-drop
     }
 
     if (arguments[0] && typeof arguments[0] === 'object') {
@@ -71,7 +72,7 @@
 
     this.mowdl = document.createElement('aside');
     // TODO: dynamically add/choose animation (fade-and-drop, slide-right, fade-in)
-    this.mowdl.className = 'mowdl-base fade-in ' +
+    this.mowdl.className = 'mowdl-base ' + this.options.animation + ' ' +
       (this.options.baseClass ? this.options.baseClass : '');
     this.mowdl.style.minWidth = this.options.minWidth + 'px';
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
