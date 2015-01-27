@@ -72,6 +72,19 @@ html, body {
           transition: left 0.35s;
 }
 
+.mowdl-base.slide-left {
+  left: 250%;
+}
+
+.mowdl-base.slide-left.mowdl-open {
+  left: 50%;
+  -webkit-transition: left 0.35s;
+     -moz-transition: left 0.35s;
+      -ms-transition: left 0.35s;
+       -o-transition: left 0.35s;
+          transition: left 0.35s;
+}
+
 .mowdl-base.fade-in {
   -webkit-transform: translate(-50%, -50%) scale(0.7);
      -moz-transform: translate(-50%, -50%) scale(0.7);
