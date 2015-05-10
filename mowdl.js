@@ -38,13 +38,11 @@
     var _ = this;
     _.mowdl.className = _.mowdl.className.replace(' mowdl-open', '');
     _.overlay.className = _.overlay.className.replace(' mowdl-open', '');
-    _.mowdl.addEventListener(this.transitionEnd, function() {
-      // THIS DOESN'T WORK
+    _.mowdl.addEventListener('transitionend', function() {
       _.mowdl.parentNode.removeChild(_.mowdl);
     });
-    _.overlay.addEventListener(this.transitionEnd, function() {
-      // THIS DOESN'T WORK
-      if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
+    _.overlay.addEventListener('transitionend', function() {
+      _.overlay.parentNode.removeChild(_.overlay);
     });
   }
 
@@ -57,7 +55,7 @@
     }
     return defaults;
   }
-  
+
   function mowdlize() {
     var content,
         contentHolder,
