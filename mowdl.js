@@ -1,14 +1,14 @@
 (function() {
   this.Mowdl = function() {
-    this.closeButton = null;
+    this.closeButton = null; // necessary?
     this.mowdl = null;
     this.overlay = null;
 
     var defaults = {
-      closeButton: true,
-      closeText: 'Exit',
       header: false,
-      content: '',
+      headerContent: '', // should be an id, needs data-mowdl
+      footer: true,
+      bodyContent: '', // should be an id, needs data-mowdl
       minWidth: 200,
       maxWidth: 800,
       maxHeight: 800,
@@ -38,11 +38,13 @@
     var _ = this;
     _.mowdl.className = _.mowdl.className.replace(' mowdl-open', '');
     _.overlay.className = _.overlay.className.replace(' mowdl-open', '');
-    _.mowdl.addEventListener('transitionend', function() {
-      _.mowdl.parentNode.removeChild(_.mowdl);
-    });
-    _.overlay.addEventListener('transitionend', function() {
-      _.overlay.parentNode.removeChild(_.overlay);
+    _.mowdl.addEventListener('transitionend', function(event) {
+      var parent = _.mowdl.parentNode;
+      // If user clicks multiple time, ignore them.
+      if (parent) {
+        parent.removeChild(_.mowdl);
+        parent.removeChild(_.overlay);
+      }
     });
   }
 
@@ -57,17 +59,9 @@
   }
 
   function mowdlize() {
-    var content,
-        contentHolder,
+    var contentHolder,
         header,
         docFrag;
-
-    // TODO: turn this into a helper
-    if (typeof this.options.content === 'string') {
-      content = this.options.content;
-    } else {
-      content = this.options.content.innerHTML;
-    }
 
     docFrag = document.createDocumentFragment();
 
@@ -82,28 +76,35 @@
     this.mowdl.style.maxWidth = this.options.maxWidth + 'px';
     this.mowdl.style.maxHeight = this.options.maxHeight + 'px';
 
-    // Add header of modal
-    header = document.createElement('header');
-    header.className = 'mowdl-header';
+    // Mowdl Header
+    if (this.options.header === true) {
+      header = document.createElement('header');
+      header.className = 'mowdl-header';
+      var contents = document.querySelector(this.options.headerContent).cloneNode(true);
 
-    this.title = document.createElement('h3');
-    this.title.className = 'mowdl-title';
-
-    if (this.options.title === true) {
-      if (typeof this.options.titleContent === 'string') {
-        this.title.innerHTML = this.options.titleContent;
+      if (contents.hasAttribute('data-mowdl')) {
+        header.appendChild(contents);
       }
+      this.mowdl.appendChild(header);
     }
 
-    header.appendChild(this.title);
+    // Mowdl Contents
+    var contents = document.querySelector(this.options.bodyContent).cloneNode(true);
+    contentHolder = document.createElement('div');
+    contentHolder.className = 'mowdl-content';
+    contentHolder.appendChild(contents);
+    this.mowdl.appendChild(contentHolder);
 
-    if (this.options.closeButton === true) {
+
+    if (this.options.footer === true) {
       var footer = document.createElement('footer');
       footer.className = 'mowdl-footer';
       this.closeButton = document.createElement('button');
       this.closeButton.className = 'mowdl-close';
-      this.closeButton.innerHTML = this.options.closeText;
-      footer.appendChild(this.closeButton);    }
+      this.closeButton.innerHTML = 'Done';
+      footer.appendChild(this.closeButton);
+      this.mowdl.appendChild(footer);
+    }
 
     if (this.options.overlay === true) {
       this.overlay = document.createElement('div');
@@ -116,21 +117,13 @@
       docFrag.appendChild(this.overlay);
     }
 
-    contentHolder = document.createElement('div');
-    contentHolder.className = 'mowdl-content';
-    contentHolder.innerHTML = content;
-
-    this.mowdl.appendChild(header);
-    this.mowdl.appendChild(contentHolder);
-    this.mowdl.appendChild(footer);
-
     docFrag.appendChild(this.mowdl);
 
     document.body.appendChild(docFrag);
   }
 
   function initializeEvents() {
-    if (this.closeButton) {
+    if (this.options.footer) {
       this.closeButton.addEventListener('click', this.close.bind(this));
     }
 

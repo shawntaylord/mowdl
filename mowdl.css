@@ -5,6 +5,14 @@ html, body {
   margin: 0;
 }
 
+*[data-mowdl] {
+  display: none;
+}
+
+.mowdl-open *[data-mowdl] {
+  display: block !important;
+}
+
 .mowdl-overlay {
   position: fixed;
   height: 100%;
